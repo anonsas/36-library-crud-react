@@ -1,13 +1,135 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --font-base: 'DM Sans', sans-serif;
+  --primary-color: #edf2f8;
+  --secondary-color: #313bac;
+  --black-color: #030303;
+  --lightGray-color: #e4e4e4;
+  --gray-color: #6b7688;
+  --brown-color: #46364a;
+  --white-color: #ffffff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: var(--font-base);
+  font-weight: 400;
+  line-height: 1.6;
+
+  font-size: 1.6rem;
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  padding: 8rem;
+}
+
+::selection {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* ===================================== */
+.main {
+  padding: 2rem;
+  border: 2px solid #000;
+  border-radius: 1em;
+}
+
+.library > h2 {
+  margin-bottom: 2rem;
+}
+
+.library-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  align-items: flex-start;
+}
+
+.books > h2 {
+  margin: 2rem 0;
+}
+
+.library-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+.list__item {
+  display: flex;
+  column-gap: 4rem;
+  align-items: center;
+}
+
+.list__item--content {
+  display: flex;
+  column-gap: 2rem;
+}
+
+.list__item--actions {
+  display: flex;
+  column-gap: 1rem;
+}
+
+/* CSS */
+button {
+  background-image: linear-gradient(#42a1ec, #0070c9);
+  border: 1px solid #0077cc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  direction: ltr;
+  display: block;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'AOS Icons', 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  line-height: 1.47059;
+  min-width: 30px;
+  overflow: visible;
+  padding: 4px 15px;
+  text-align: center;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
+button:hover {
+  background-image: linear-gradient(#51a9ee, #147bcd);
+  border-color: #1482d0;
+  text-decoration: none;
+}
+
+button:active {
+  background-image: linear-gradient(#3d94d9, #0067b9);
+  border-color: #006dbc;
+  outline: none;
+}
+
+button:focus {
+  box-shadow: rgba(131, 192, 253, 0.5) 0 0 0 3px;
+  outline: none;
 }

@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import BookContext from './contexts/BookContext';
+import Books from './components/Books/Books';
+
+const initialState = {
+  id: '',
+  title: '',
+  price: '',
+  isEditing: false,
+};
 
 function App() {
+  const [book, setBook] = useState(initialState);
+  const [bookList, setBookList] = useState(null);
+
+  useEffect(() => {
+    if (bookList === null) {
+      const booksLS = localStorage.getItem('booksLS');
+      booksLS === null ? setBookList([]) : setBookList(JSON.parse(booksLS));
+    } else {
+      localStorage.setItem('booksLS', JSON.stringify(bookList));
+    }
+  }, [bookList]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BookContext.Provider
+      value={{
+        initialState,
+        book,
+        setBook,
+        bookList,
+        setBookList,
+      }}
+    >
+      <Books />
+    </BookContext.Provider>
   );
 }
 
